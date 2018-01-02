@@ -11,6 +11,8 @@ import { HeadingImageComponent} from './heading-image/heading-image.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MessagesService} from './services/messages.service';
 import {HttpClientModule} from '@angular/common/http';
+import {WordofthedayService} from './wordoftheday/wordoftheday.service';
+import {WordofthedayComponent} from './wordoftheday/wordoftheday.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http';
     MessageComponent,
     PostMessageComponent,
     HeadingImageComponent,
-    SidebarComponent
+    SidebarComponent,
+    WordofthedayComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [MessagesService],
+  providers: [MessagesService, WordofthedayService],
   bootstrap: [AppComponent]
 
 })

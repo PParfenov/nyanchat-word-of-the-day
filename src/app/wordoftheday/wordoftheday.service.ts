@@ -13,63 +13,10 @@ export class WordofthedayService {
   constructor(private http: HttpClient) { }
 
   getWordOfTheDay(): Observable<Wordoftheday> {
-    const endPoint = this.wotdAPIkey + this.wotdAPIkey;
+    const currentDate = new Date().toISOString().toString().substring(0, 10);
+    const endPoint = this.wotdURL + currentDate + this.wotdAPIkey;
     return this.http.get<Wordoftheday>(endPoint);
   }
 
 
-}
-
-
-@Injectable()
-export class MessagesService {
-
-  private messagesUrl = API_URL + '/messages';
-
-  messages: Message[] = [];
-  messageSource = new BehaviorSubject<Message>(new Message({
-    messageId: 0,
-    timestamp: 'Admin Message',
-    content: 'Welcome to NyanChat'
-  }));
-  currentMessage = this.messageSource.asObservable();
-
-
-  constructor(private http: HttpClient) {
-  }
-
-  getAllMessages() {
-    const getMessages = this.http.get<Message[]>(this.messagesUrl);
-    getMessages.subscribe(next => {
-      const tempMessages: Message[] = [];
-      for (const x in next) {
-        tempMessages.push(new Message(next[x]));
-        console.log(next[x]);
-      }
-      this.messages = tempMessages;
-    });
-    return this.messages;
-  }
-
-  getMessagesById(id: number): Message {
-    return this.messages.filter(message => message.messageId === id).pop();
-  }
-
-  getMessagesByUserName(userName: string): Message {
-    return this.messages.filter(message => message.userName === userName).pop();
-  }
-
-  deleteMessageById(id: number): MessagesService {
-    this.messages = this.messages.filter(message => message.messageId !== id);
-    return this;
-  }
-
-  updateMessageById(id: number, values: Object = {}): Message {
-    const message = this.getMessagesById(id);
-    if (!message) {
-      return null;
-    }
-    Object.assign(message, values);
-    return message;
-  }
 }

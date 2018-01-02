@@ -3,6 +3,12 @@
   <div class="row">
     <div class="col-3 main">
       <h2>Placeholder for Members, Channels, Pull Request Threads</h2>
+      <button class="btn btn-primary" (click)="onClick()">
+        Click me for the word of the day
+      </button>
+      <app-wordoftheday [wordOfTheDay]="wordOfTheDay"></app-wordoftheday>
+      </div>
+
     </div>
     <div class="col-9 main">
       <div class="messages">
@@ -11,6 +17,5 @@
       <div class="post-message main">
         <app-post-message></app-post-message>
       </div>
-    </div>
   </div>
 </div>

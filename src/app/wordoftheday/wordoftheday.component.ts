@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { WordofthedayService } from './wordoftheday.service';
+import {Wordoftheday} from './wordoftheday';
 
 @Component({
   selector: 'app-wordoftheday',
@@ -8,7 +9,10 @@ import { WordofthedayService } from './wordoftheday.service';
 })
 export class WordofthedayComponent implements OnInit {
 
-  constructor(private wordOfTheDayService: WordOfTheDayService) { }
+ @Input()
+ public wordOfTheDay: Wordoftheday;
+
+  constructor() { }
 
   ngOnInit() {
   }
