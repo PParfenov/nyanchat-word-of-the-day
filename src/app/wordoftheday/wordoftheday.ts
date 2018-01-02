@@ -1,8 +1,9 @@
+import {Example} from './Example-model';
+import {Definition} from '@angular/compiler-cli';
+
 export class Wordoftheday {
 
-public word: string;
-public publishDate: string;
-public note: string;
-public examples: 
-
+constructor(public word: string, public examples: Example[], public definitions: Definition[]) {
+  }
 }
+
