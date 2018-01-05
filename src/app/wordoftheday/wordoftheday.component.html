@@ -1,9 +1,10 @@
-<span class="text"><h1 class="pavel">Word of the day!</h1>
-<h2 class="pavel">{{wordOfTheDay.word}}</h2>
+<span class="text" *ngIf="wordOfTheDay">
+  <h1 class="text">Word of the day!</h1>
+<h2 class="text">{{wordOfTheDay.word}}</h2>
 <div *ngFor="let def of wordOfTheDay.definitions">
-  <p class="pavel">Definition: {{def.text}}</p>
+  <p class="text">Definition: {{def.text}}</p>
 </div>
   <div *ngFor="let example of wordOfTheDay.examples">
-  <p class="pavel">Example: {{example.text}}</p>
+  <p class="text">Example: {{example.text}}</p>
 </div>
 </span>

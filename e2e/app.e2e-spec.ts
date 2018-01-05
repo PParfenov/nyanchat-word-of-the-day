@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('nyan-chat App', () => {
+describe('wotd App', () => {
   let page: AppPage;
 
   beforeEach(() => {

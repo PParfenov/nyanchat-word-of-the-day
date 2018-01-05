@@ -1,20 +1,20 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { WordofthedayService } from './wordoftheday.service';
-import {Wordoftheday} from './wordoftheday';
+import { WordOfTheDayService } from './../service/wordoftheday.service';
+import {WordOfTheDay} from './../models/wordoftheday';
 
 @Component({
   selector: 'app-wordoftheday',
   templateUrl: './wordoftheday.component.html',
   styleUrls: ['./wordoftheday.component.css']
 })
-export class WordofthedayComponent implements OnInit {
+export class WordOfTheDayComponent implements OnInit {
 
- @Input()
- public wordOfTheDay: Wordoftheday;
+ public wordOfTheDay: WordOfTheDay;
 
-  constructor() { }
+  constructor(private wordOfTheDayService: WordOfTheDayService) { }
 
   ngOnInit() {
+    this.wordOfTheDayService.getWordOfTheDay(new Date()).subscribe(wotd => this.wordOfTheDay = wotd);
   }
 
 }

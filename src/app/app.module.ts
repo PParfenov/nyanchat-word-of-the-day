@@ -1,37 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ActiveChatComponent } from './active-chat/active-chat.component';
-import { MessageComponent } from './message/message.component';
-import { PostMessageComponent } from './post-message/post-message.component';
-import { HeadingImageComponent} from './heading-image/heading-image.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { MessagesService} from './services/messages.service';
-import {HttpClientModule} from '@angular/common/http';
-import {WordofthedayService} from './wordoftheday/wordoftheday.service';
-import {WordofthedayComponent} from './wordoftheday/wordoftheday.component';
+import { WordOfTheDayComponent } from './wordoftheday/wordoftheday.component';
+import { WordOfTheDayService } from './service/wordoftheday.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ActiveChatComponent,
-    MessageComponent,
-    PostMessageComponent,
-    HeadingImageComponent,
-    SidebarComponent,
-    WordofthedayComponent
+    WordOfTheDayComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [MessagesService, WordofthedayService],
+  providers: [WordOfTheDayService],
   bootstrap: [AppComponent]
-
 })
 export class AppModule { }

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {Wordoftheday} from './wordoftheday';
+import {WordOfTheDay} from './../models/wordoftheday';
 
 @Injectable()
-export class WordofthedayService {
+export class WordOfTheDayService {
 
   httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
   private wotdURL = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?date=';
@@ -12,10 +12,10 @@ export class WordofthedayService {
 
   constructor(private http: HttpClient) { }
 
-  getWordOfTheDay(): Observable<Wordoftheday> {
-    const currentDate = new Date().toISOString().toString().substring(0, 10);
+  getWordOfTheDay(date: Date): Observable<WordOfTheDay> {
+    const currentDate = date.toISOString().toString().substring(0, 10);
     const endPoint = this.wotdURL + currentDate + this.wotdAPIkey;
-    return this.http.get<Wordoftheday>(endPoint);
+    return this.http.get<WordOfTheDay>(endPoint);
   }
 
 
